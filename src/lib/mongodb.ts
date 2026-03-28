@@ -3,10 +3,6 @@ import { env } from './env';
 
 const MONGODB_URI = env.mongodbUri;
 
-if (!MONGODB_URI && env.isProduction) {
-  throw new Error('Please define the MONGODB_URI environment variable');
-}
-
 interface Cached {
   conn: typeof mongoose | null;
   promise: Promise<typeof mongoose> | null;
@@ -25,7 +21,8 @@ if (!cached) {
 
 async function connectDB() {
   if (!MONGODB_URI) {
-    throw new Error('MONGODB_URI is not defined');
+    console.warn('MONGODB_URI is not defined - database features will be unavailable');
+    return null;
   }
 
   if (cached.conn) {

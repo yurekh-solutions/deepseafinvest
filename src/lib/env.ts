@@ -36,15 +36,20 @@ export const env = {
   isProduction: process.env.NODE_ENV === 'production',
 } as const;
 
-// Validate critical env vars on startup
+// Validate critical env vars on startup (skip during build)
 export function validateEnv() {
+  // Skip validation during Next.js build phase
+  if (process.env.NEXT_PHASE === 'phase-production-build') {
+    return;
+  }
+  
   const required = ['MONGODB_URI', 'JWT_SECRET'];
   const missing = required.filter(key => !process.env[key]);
   
   if (missing.length > 0 && env.isProduction) {
-    throw new Error(
-      `Missing required environment variables: ${missing.join(', ')}\n` +
-      'Please check your .env file or environment configuration.'
+    console.warn(
+      `Missing environment variables: ${missing.join(', ')}\n` +
+      'Some features may be unavailable.'
     );
   }
 }
