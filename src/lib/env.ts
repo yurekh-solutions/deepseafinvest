@@ -26,7 +26,7 @@ export const env = {
 
   // Admin
   adminUsername: getEnvVar('ADMIN_USERNAME', 'admin'),
-  adminPasswordHash: getEnvVar('ADMIN_PASSWORD_HASH'),
+  adminPassword: getEnvVar('ADMIN_PASSWORD', 'admin123'),
 
   // Contact
   whatsappNumber: getEnvVar('WHATSAPP_NUMBER', '919136242706'),
