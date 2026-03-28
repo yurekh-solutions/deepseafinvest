@@ -8,7 +8,6 @@
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
-const bcrypt = require('bcryptjs');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -46,10 +45,6 @@ async function setup() {
   // Generate JWT secret if not provided
   const finalJwtSecret = jwtSecret || require('crypto').randomBytes(32).toString('hex');
 
-  // Hash admin password
-  console.log('\nHashing password...');
-  const passwordHash = bcrypt.hashSync(adminPassword, 10);
-
   // Create .env file
   const envContent = `# MongoDB Connection
 MONGODB_URI=${mongoUri}
@@ -59,7 +54,7 @@ JWT_SECRET=${finalJwtSecret}
 
 # Admin Credentials
 ADMIN_USERNAME=${adminUsername}
-ADMIN_PASSWORD_HASH=${passwordHash}
+ADMIN_PASSWORD=${adminPassword}
 
 # WhatsApp Number
 WHATSAPP_NUMBER=${whatsappNumber}
