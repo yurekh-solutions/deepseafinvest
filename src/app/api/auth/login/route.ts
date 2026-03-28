@@ -18,17 +18,17 @@ export async function POST(req: NextRequest) {
     console.log('Login attempt started');
     const { Admin } = await getDB();
     console.log('Database connected');
-    
+
     const body = await req.json();
     console.log('Request body:', body);
     validateRequired(body, ['username', 'password']);
-    
+
     const { username, password } = body;
 
     // Find admin
     const admin = await Admin.findOne({ username });
     console.log('Admin found:', admin ? 'Yes' : 'No');
-    
+
     if (!admin) {
       console.log('Admin not found for username:', username);
       return NextResponse.json(
@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
     console.log('Verifying password...');
     const isPasswordValid = password === admin.password;
     console.log('Password valid:', isPasswordValid);
-    
+
     if (!isPasswordValid) {
       return NextResponse.json(
         { error: 'Invalid credentials' },

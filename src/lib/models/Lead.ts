@@ -4,7 +4,13 @@ export interface ILead extends Document {
   name?: string;
   email?: string;
   phone?: string;
-  source: 'website' | 'popup' | 'contact-form' | 'whatsapp' | 'phone' | 'calculator';
+  source:
+    | 'website'
+    | 'popup'
+    | 'contact-form'
+    | 'whatsapp'
+    | 'phone'
+    | 'calculator';
   type: 'form' | 'whatsapp' | 'phone' | 'popup';
   status: 'new' | 'contacted' | 'qualified' | 'converted' | 'lost';
   message?: string;
@@ -31,7 +37,14 @@ const LeadSchema: Schema = new Schema(
     },
     source: {
       type: String,
-      enum: ['website', 'popup', 'contact-form', 'whatsapp', 'phone', 'calculator'],
+      enum: [
+        'website',
+        'popup',
+        'contact-form',
+        'whatsapp',
+        'phone',
+        'calculator',
+      ],
       default: 'website',
     },
     type: {
@@ -62,4 +75,5 @@ const LeadSchema: Schema = new Schema(
   }
 );
 
-export default mongoose.models.Lead || mongoose.model<ILead>('Lead', LeadSchema);
+export default mongoose.models.Lead ||
+  mongoose.model<ILead>('Lead', LeadSchema);

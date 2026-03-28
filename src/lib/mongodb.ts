@@ -21,7 +21,9 @@ if (!cached) {
 
 async function connectDB() {
   if (!MONGODB_URI) {
-    console.warn('MONGODB_URI is not defined - database features will be unavailable');
+    console.warn(
+      'MONGODB_URI is not defined - database features will be unavailable'
+    );
     return null;
   }
 
@@ -34,7 +36,7 @@ async function connectDB() {
       bufferCommands: false,
     };
 
-    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
+    cached.promise = mongoose.connect(MONGODB_URI, opts).then(mongoose => {
       return mongoose;
     });
   }

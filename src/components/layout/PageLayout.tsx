@@ -13,9 +13,15 @@ interface PageLayoutProps {
   bgImage?: string;
 }
 
-export function PageLayout({ children, title, subtitle, showCta = true, bgImage }: PageLayoutProps) {
+export function PageLayout({
+  children,
+  title,
+  subtitle,
+  showCta = true,
+  bgImage,
+}: PageLayoutProps) {
   const whatsappLink = `https://wa.me/919136242706`;
-  
+
   return (
     <div className="min-h-screen bg-navy-gradient">
       {/* Navbar */}
@@ -27,7 +33,7 @@ export function PageLayout({ children, title, subtitle, showCta = true, bgImage 
       <section className="relative py-16 md:py-20 lg:py-28 overflow-hidden -mt-20 pt-28">
         {bgImage ? (
           <>
-            <div 
+            <div
               className="absolute inset-0 bg-cover bg-center bg-no-repeat"
               style={{ backgroundImage: `url(${bgImage})` }}
             />
@@ -37,7 +43,7 @@ export function PageLayout({ children, title, subtitle, showCta = true, bgImage 
           <div className="absolute inset-0 bg-hero-gradient" />
         )}
         <div className="absolute top-20 right-10 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 md:mb-6">
@@ -54,9 +60,7 @@ export function PageLayout({ children, title, subtitle, showCta = true, bgImage 
 
       {/* Content Section */}
       <section className="relative py-12 md:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {children}
-        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">{children}</div>
       </section>
     </div>
   );

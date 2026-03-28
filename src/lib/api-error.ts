@@ -26,10 +26,7 @@ export function handleApiError(error: unknown) {
   }
 
   if (error instanceof Error) {
-    return NextResponse.json(
-      { error: error.message },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
   return NextResponse.json(
@@ -43,11 +40,8 @@ export function validateRequired(
   fields: string[]
 ): void {
   const missing = fields.filter(field => !data[field]);
-  
+
   if (missing.length > 0) {
-    throw new ApiError(
-      400,
-      `Missing required fields: ${missing.join(', ')}`
-    );
+    throw new ApiError(400, `Missing required fields: ${missing.join(', ')}`);
   }
 }

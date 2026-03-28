@@ -47,25 +47,35 @@ export default function IndustryTopPerformersPage() {
       {/* Disclaimer */}
       <div className="max-w-3xl mx-auto text-center mb-12">
         <p className="text-white/50 text-sm">
-          *Returns shown are historical 5-year annualized returns as of {new Date().toLocaleDateString('en-IN', { month: 'long', year: 'numeric' })}. 
-          Past performance does not guarantee future results. Please consult a financial advisor before investing.
+          *Returns shown are historical 5-year annualized returns as of{' '}
+          {new Date().toLocaleDateString('en-IN', {
+            month: 'long',
+            year: 'numeric',
+          })}
+          . Past performance does not guarantee future results. Please consult a
+          financial advisor before investing.
         </p>
       </div>
 
       {/* Top Performers Grid */}
       <div className="grid md:grid-cols-2 gap-6 mb-16">
-        {topPerformers.map((category) => (
+        {topPerformers.map(category => (
           <GlassCard key={category.category} className="p-6" elevated>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 bg-accent-red/20 rounded-xl flex items-center justify-center">
                 <Trophy className="h-6 w-6 text-accent-red" />
               </div>
-              <h3 className="text-xl font-semibold text-white">{category.category}</h3>
+              <h3 className="text-xl font-semibold text-white">
+                {category.category}
+              </h3>
             </div>
 
             <div className="space-y-4">
               {category.funds.map((fund, index) => (
-                <div key={fund.name} className="flex items-center justify-between p-4 bg-white/5 rounded-lg">
+                <div
+                  key={fund.name}
+                  className="flex items-center justify-between p-4 bg-white/5 rounded-lg"
+                >
                   <div className="flex items-center gap-3">
                     <span className="w-6 h-6 bg-accent-red/20 rounded-full flex items-center justify-center text-accent-red text-sm font-bold">
                       {index + 1}
@@ -74,7 +84,10 @@ export default function IndustryTopPerformersPage() {
                       <p className="text-white font-medium">{fund.name}</p>
                       <div className="flex items-center gap-1">
                         {Array.from({ length: fund.rating }).map((_, i) => (
-                          <Star key={i} className="h-3 w-3 text-yellow-500 fill-yellow-500" />
+                          <Star
+                            key={i}
+                            className="h-3 w-3 text-yellow-500 fill-yellow-500"
+                          />
                         ))}
                       </div>
                     </div>
@@ -95,10 +108,13 @@ export default function IndustryTopPerformersPage() {
 
       {/* Note */}
       <GlassCard className="p-8 text-center" elevated>
-        <h3 className="text-xl font-bold text-white mb-4">Want Detailed Analysis?</h3>
+        <h3 className="text-xl font-bold text-white mb-4">
+          Want Detailed Analysis?
+        </h3>
         <p className="text-white/70 mb-6">
-          Get personalized fund recommendations based on your risk profile and financial goals. 
-          Our experts analyze 100+ parameters before recommending any fund.
+          Get personalized fund recommendations based on your risk profile and
+          financial goals. Our experts analyze 100+ parameters before
+          recommending any fund.
         </p>
         <a
           href="https://wa.me/919136242706"

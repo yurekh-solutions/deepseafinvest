@@ -1,17 +1,26 @@
 import { PageLayout } from '@/components/layout/PageLayout';
 import { GlassCard } from '@/components/glassmorphism/GlassCard';
-import { CheckCircle, FileText, MessageCircle, Phone, Calendar, User } from 'lucide-react';
+import {
+  CheckCircle,
+  FileText,
+  MessageCircle,
+  Phone,
+  Calendar,
+  User,
+} from 'lucide-react';
 
 const processSteps = [
   {
     icon: User,
     title: 'Initial Consultation',
-    description: 'Free 30-minute session to understand your financial situation and goals.',
+    description:
+      'Free 30-minute session to understand your financial situation and goals.',
   },
   {
     icon: FileText,
     title: 'Financial Analysis',
-    description: 'Comprehensive review of your income, expenses, assets, and liabilities.',
+    description:
+      'Comprehensive review of your income, expenses, assets, and liabilities.',
   },
   {
     icon: Calendar,
@@ -46,15 +55,18 @@ export default function StartFinancialPlanningPage() {
       {/* Introduction */}
       <div className="max-w-3xl mx-auto text-center mb-16">
         <p className="text-white/70 text-lg leading-relaxed">
-          Financial planning is the foundation of a secure future. Our certified financial planners 
-          work with you to create a comprehensive roadmap that addresses your unique needs, 
-          from wealth creation to retirement planning and everything in between.
+          Financial planning is the foundation of a secure future. Our certified
+          financial planners work with you to create a comprehensive roadmap
+          that addresses your unique needs, from wealth creation to retirement
+          planning and everything in between.
         </p>
       </div>
 
       {/* Process Steps */}
       <div className="max-w-4xl mx-auto mb-16">
-        <h2 className="text-2xl font-bold text-white mb-8 text-center">Our Process</h2>
+        <h2 className="text-2xl font-bold text-white mb-8 text-center">
+          Our Process
+        </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {processSteps.map((step, index) => (
             <GlassCard key={step.title} className="p-6 relative" hover>
@@ -64,7 +76,9 @@ export default function StartFinancialPlanningPage() {
               <div className="w-12 h-12 bg-accent-red/20 rounded-xl flex items-center justify-center mb-4 mt-2">
                 <step.icon className="h-6 w-6 text-accent-red" />
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">{step.title}</h3>
+              <h3 className="text-lg font-semibold text-white mb-2">
+                {step.title}
+              </h3>
               <p className="text-white/60 text-sm">{step.description}</p>
             </GlassCard>
           ))}
@@ -86,23 +100,35 @@ export default function StartFinancialPlanningPage() {
         </GlassCard>
 
         <GlassCard className="p-8" elevated>
-          <h3 className="text-2xl font-bold text-white mb-6">Who Needs Financial Planning?</h3>
+          <h3 className="text-2xl font-bold text-white mb-6">
+            Who Needs Financial Planning?
+          </h3>
           <div className="space-y-4">
             <div className="p-4 bg-white/5 rounded-lg">
-              <p className="text-white font-semibold mb-1">Young Professionals</p>
-              <p className="text-white/60 text-sm">Start early to maximize compounding benefits</p>
+              <p className="text-white font-semibold mb-1">
+                Young Professionals
+              </p>
+              <p className="text-white/60 text-sm">
+                Start early to maximize compounding benefits
+              </p>
             </div>
             <div className="p-4 bg-white/5 rounded-lg">
               <p className="text-white font-semibold mb-1">Growing Families</p>
-              <p className="text-white/60 text-sm">Plan for education, home, and family security</p>
+              <p className="text-white/60 text-sm">
+                Plan for education, home, and family security
+              </p>
             </div>
             <div className="p-4 bg-white/5 rounded-lg">
               <p className="text-white font-semibold mb-1">Pre-Retirees</p>
-              <p className="text-white/60 text-sm">Ensure a comfortable and secure retirement</p>
+              <p className="text-white/60 text-sm">
+                Ensure a comfortable and secure retirement
+              </p>
             </div>
             <div className="p-4 bg-white/5 rounded-lg">
               <p className="text-white font-semibold mb-1">Business Owners</p>
-              <p className="text-white/60 text-sm">Separate personal and business finances</p>
+              <p className="text-white/60 text-sm">
+                Separate personal and business finances
+              </p>
             </div>
           </div>
         </GlassCard>
@@ -110,9 +136,12 @@ export default function StartFinancialPlanningPage() {
 
       {/* CTA */}
       <GlassCard className="p-8 md:p-12 text-center max-w-3xl mx-auto" elevated>
-        <h2 className="text-3xl font-bold text-white mb-4">Ready to Plan Your Future?</h2>
+        <h2 className="text-3xl font-bold text-white mb-4">
+          Ready to Plan Your Future?
+        </h2>
         <p className="text-white/70 mb-8">
-          Book your free consultation today and take the first step towards financial clarity and confidence.
+          Book your free consultation today and take the first step towards
+          financial clarity and confidence.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a

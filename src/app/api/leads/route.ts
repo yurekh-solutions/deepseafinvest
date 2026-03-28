@@ -13,7 +13,8 @@ export async function POST(req: NextRequest) {
   try {
     const { Lead } = await getDB();
     const body = await req.json();
-    const { name, email, phone, message, source, pageSource, device, type } = body;
+    const { name, email, phone, message, source, pageSource, device, type } =
+      body;
 
     // Create lead (no required fields - supports WhatsApp/Phone click tracking)
     const lead = await Lead.create({

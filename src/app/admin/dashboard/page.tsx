@@ -45,7 +45,9 @@ function TypeBadge({ type }: { type: string }) {
     phone: 'Phone',
   };
   return (
-    <span className={`px-2 py-0.5 rounded text-xs font-medium ${styles[type] || styles.form}`}>
+    <span
+      className={`px-2 py-0.5 rounded text-xs font-medium ${styles[type] || styles.form}`}
+    >
       {labels[type] || type}
     </span>
   );
@@ -60,7 +62,9 @@ function StatusBadge({ status }: { status: string }) {
     lost: 'bg-red-500/20 text-red-300',
   };
   return (
-    <span className={`px-2 py-1 rounded text-xs font-medium ${styles[status] || 'bg-gray-500/20 text-gray-300'}`}>
+    <span
+      className={`px-2 py-1 rounded text-xs font-medium ${styles[status] || 'bg-gray-500/20 text-gray-300'}`}
+    >
       {status.charAt(0).toUpperCase() + status.slice(1)}
     </span>
   );
@@ -103,10 +107,16 @@ export default function AdminDashboardPage() {
       const s: Stats = {
         total: allLeads.length,
         today: allLeads.filter(l => new Date(l.createdAt) >= today).length,
-        whatsapp: allLeads.filter(l => l.type === 'whatsapp' || l.source === 'whatsapp').length,
-        phone: allLeads.filter(l => l.type === 'phone' || l.source === 'phone').length,
-        forms: allLeads.filter(l => l.type === 'form' || l.source === 'contact-form').length,
-        popup: allLeads.filter(l => l.type === 'popup' || l.source === 'popup').length,
+        whatsapp: allLeads.filter(
+          l => l.type === 'whatsapp' || l.source === 'whatsapp'
+        ).length,
+        phone: allLeads.filter(l => l.type === 'phone' || l.source === 'phone')
+          .length,
+        forms: allLeads.filter(
+          l => l.type === 'form' || l.source === 'contact-form'
+        ).length,
+        popup: allLeads.filter(l => l.type === 'popup' || l.source === 'popup')
+          .length,
         new: allLeads.filter(l => l.status === 'new').length,
         contacted: allLeads.filter(l => l.status === 'contacted').length,
         qualified: allLeads.filter(l => l.status === 'qualified').length,
@@ -126,7 +136,10 @@ export default function AdminDashboardPage() {
 
   useEffect(() => {
     if (!mounted) return;
-    if (!token) { router.replace('/admin/login'); return; }
+    if (!token) {
+      router.replace('/admin/login');
+      return;
+    }
     fetchData(token);
   }, [mounted, token, fetchData]);
 
@@ -147,9 +160,10 @@ export default function AdminDashboardPage() {
     );
   }
 
-  const conversionRate = stats && stats.total > 0
-    ? ((stats.converted / stats.total) * 100).toFixed(1)
-    : '0.0';
+  const conversionRate =
+    stats && stats.total > 0
+      ? ((stats.converted / stats.total) * 100).toFixed(1)
+      : '0.0';
 
   return (
     <>
@@ -159,9 +173,15 @@ export default function AdminDashboardPage() {
         <div className="border-b border-white/10 bg-white/5 backdrop-blur-md px-6 py-4">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img src="/logo.png" alt="Logo" className="h-10 w-10 object-contain" />
+              <img
+                src="/logo.png"
+                alt="Logo"
+                className="h-10 w-10 object-contain"
+              />
               <div>
-                <h1 className="text-xl font-bold text-white">DEEPSEA FINVEST</h1>
+                <h1 className="text-xl font-bold text-white">
+                  DEEPSEA FINVEST
+                </h1>
                 <p className="text-xs text-gray-400">Admin Dashboard</p>
               </div>
             </div>
@@ -172,8 +192,18 @@ export default function AdminDashboardPage() {
                 className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-all"
                 title="Refresh"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                  />
                 </svg>
               </button>
               <button
@@ -186,8 +216,18 @@ export default function AdminDashboardPage() {
                 onClick={handleLogout}
                 className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 text-sm transition-all border border-white/10"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                  />
                 </svg>
                 Logout
               </button>
@@ -198,28 +238,65 @@ export default function AdminDashboardPage() {
         <div className="max-w-7xl mx-auto px-6 py-6">
           {/* Page Title */}
           <div className="mb-6">
-            <h2 className="text-2xl font-bold text-white">Dashboard Overview</h2>
-            {lastUpdated && <p className="text-sm text-gray-500 mt-1">Last updated: {lastUpdated}</p>}
+            <h2 className="text-2xl font-bold text-white">
+              Dashboard Overview
+            </h2>
+            {lastUpdated && (
+              <p className="text-sm text-gray-500 mt-1">
+                Last updated: {lastUpdated}
+              </p>
+            )}
           </div>
 
           {error && (
-            <div className="mb-4 p-3 bg-red-500/10 border border-red-500/30 rounded-lg text-red-300 text-sm">{error}</div>
+            <div className="mb-4 p-3 bg-red-500/10 border border-red-500/30 rounded-lg text-red-300 text-sm">
+              {error}
+            </div>
           )}
 
           {/* Stats Row 1 */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
             {[
-              { label: 'Total Leads', value: stats?.total || 0, sub: `${stats?.today || 0} today`, icon: '📊', color: 'text-white' },
-              { label: 'WhatsApp Clicks', value: stats?.whatsapp || 0, sub: 'Lead generation', icon: '💬', color: 'text-green-400' },
-              { label: 'Phone Clicks', value: stats?.phone || 0, sub: 'Direct calls', icon: '📞', color: 'text-orange-400' },
-              { label: 'Form Submissions', value: stats?.forms || 0, sub: 'Inquiries', icon: '📝', color: 'text-blue-400' },
-            ].map((stat) => (
-              <div key={stat.label} className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-5">
+              {
+                label: 'Total Leads',
+                value: stats?.total || 0,
+                sub: `${stats?.today || 0} today`,
+                icon: '📊',
+                color: 'text-white',
+              },
+              {
+                label: 'WhatsApp Clicks',
+                value: stats?.whatsapp || 0,
+                sub: 'Lead generation',
+                icon: '💬',
+                color: 'text-green-400',
+              },
+              {
+                label: 'Phone Clicks',
+                value: stats?.phone || 0,
+                sub: 'Direct calls',
+                icon: '📞',
+                color: 'text-orange-400',
+              },
+              {
+                label: 'Form Submissions',
+                value: stats?.forms || 0,
+                sub: 'Inquiries',
+                icon: '📝',
+                color: 'text-blue-400',
+              },
+            ].map(stat => (
+              <div
+                key={stat.label}
+                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-5"
+              >
                 <div className="flex items-start justify-between mb-3">
                   <p className="text-sm text-gray-400">{stat.label}</p>
                   <span className="text-xl">{stat.icon}</span>
                 </div>
-                <p className={`text-4xl font-bold ${stat.color}`}>{stat.value}</p>
+                <p className={`text-4xl font-bold ${stat.color}`}>
+                  {stat.value}
+                </p>
                 <p className="text-xs text-gray-500 mt-2">{stat.sub}</p>
               </div>
             ))}
@@ -228,16 +305,39 @@ export default function AdminDashboardPage() {
           {/* Stats Row 2 */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
             {[
-              { label: 'Popup Leads', value: stats?.popup || 0, sub: 'From popup form', icon: '🎯', color: 'text-purple-400' },
-              { label: 'Conversion Rate', value: `${conversionRate}%`, sub: 'Leads / Converted', icon: '📈', color: 'text-yellow-400' },
-              { label: 'New (Unread)', value: stats?.new || 0, sub: 'Needs attention', icon: '🔔', color: 'text-red-400' },
-            ].map((stat) => (
-              <div key={stat.label} className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-5">
+              {
+                label: 'Popup Leads',
+                value: stats?.popup || 0,
+                sub: 'From popup form',
+                icon: '🎯',
+                color: 'text-purple-400',
+              },
+              {
+                label: 'Conversion Rate',
+                value: `${conversionRate}%`,
+                sub: 'Leads / Converted',
+                icon: '📈',
+                color: 'text-yellow-400',
+              },
+              {
+                label: 'New (Unread)',
+                value: stats?.new || 0,
+                sub: 'Needs attention',
+                icon: '🔔',
+                color: 'text-red-400',
+              },
+            ].map(stat => (
+              <div
+                key={stat.label}
+                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-5"
+              >
                 <div className="flex items-start justify-between mb-3">
                   <p className="text-sm text-gray-400">{stat.label}</p>
                   <span className="text-xl">{stat.icon}</span>
                 </div>
-                <p className={`text-4xl font-bold ${stat.color}`}>{stat.value}</p>
+                <p className={`text-4xl font-bold ${stat.color}`}>
+                  {stat.value}
+                </p>
                 <p className="text-xs text-gray-500 mt-2">{stat.sub}</p>
               </div>
             ))}
@@ -259,35 +359,65 @@ export default function AdminDashboardPage() {
 
               {leads.length === 0 ? (
                 <div className="p-8 text-center text-gray-500 text-sm">
-                  No leads yet. They will appear here once someone submits a form.
+                  No leads yet. They will appear here once someone submits a
+                  form.
                 </div>
               ) : (
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
                       <tr className="border-b border-white/5">
-                        <th className="text-left py-3 px-4 text-gray-500 font-medium">Type</th>
-                        <th className="text-left py-3 px-4 text-gray-500 font-medium">Name</th>
-                        <th className="text-left py-3 px-4 text-gray-500 font-medium">Page</th>
-                        <th className="text-left py-3 px-4 text-gray-500 font-medium">Device</th>
-                        <th className="text-left py-3 px-4 text-gray-500 font-medium">Status</th>
-                        <th className="text-left py-3 px-4 text-gray-500 font-medium">Date</th>
+                        <th className="text-left py-3 px-4 text-gray-500 font-medium">
+                          Type
+                        </th>
+                        <th className="text-left py-3 px-4 text-gray-500 font-medium">
+                          Name
+                        </th>
+                        <th className="text-left py-3 px-4 text-gray-500 font-medium">
+                          Page
+                        </th>
+                        <th className="text-left py-3 px-4 text-gray-500 font-medium">
+                          Device
+                        </th>
+                        <th className="text-left py-3 px-4 text-gray-500 font-medium">
+                          Status
+                        </th>
+                        <th className="text-left py-3 px-4 text-gray-500 font-medium">
+                          Date
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
-                      {leads.map((lead) => (
-                        <tr key={lead._id} className="border-b border-white/5 hover:bg-white/3 transition-all">
+                      {leads.map(lead => (
+                        <tr
+                          key={lead._id}
+                          className="border-b border-white/5 hover:bg-white/3 transition-all"
+                        >
                           <td className="py-3 px-4">
                             <TypeBadge type={lead.type || 'form'} />
                           </td>
-                          <td className="py-3 px-4 text-gray-300 font-medium">{lead.name || '—'}</td>
-                          <td className="py-3 px-4 text-gray-400 text-xs">{lead.pageSource || '/'}</td>
-                          <td className="py-3 px-4 text-gray-400 text-xs">{lead.device || 'Unknown'}</td>
+                          <td className="py-3 px-4 text-gray-300 font-medium">
+                            {lead.name || '—'}
+                          </td>
+                          <td className="py-3 px-4 text-gray-400 text-xs">
+                            {lead.pageSource || '/'}
+                          </td>
+                          <td className="py-3 px-4 text-gray-400 text-xs">
+                            {lead.device || 'Unknown'}
+                          </td>
                           <td className="py-3 px-4">
                             <StatusBadge status={lead.status} />
                           </td>
                           <td className="py-3 px-4 text-gray-500 text-xs">
-                            {new Date(lead.createdAt).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' })}
+                            {new Date(lead.createdAt).toLocaleDateString(
+                              'en-IN',
+                              {
+                                day: '2-digit',
+                                month: 'short',
+                                hour: '2-digit',
+                                minute: '2-digit',
+                              }
+                            )}
                           </td>
                         </tr>
                       ))}
@@ -307,18 +437,47 @@ export default function AdminDashboardPage() {
                 <h3 className="font-semibold text-white mb-4">Lead Pipeline</h3>
                 <div className="space-y-3">
                   {[
-                    { label: 'New', count: stats?.new || 0, color: 'bg-green-500' },
-                    { label: 'Contacted', count: stats?.contacted || 0, color: 'bg-blue-500' },
-                    { label: 'Qualified', count: stats?.qualified || 0, color: 'bg-yellow-500' },
-                    { label: 'Converted', count: stats?.converted || 0, color: 'bg-purple-500' },
-                    { label: 'Lost', count: stats?.lost || 0, color: 'bg-red-500' },
-                  ].map((stage) => (
-                    <div key={stage.label} className="flex items-center justify-between">
+                    {
+                      label: 'New',
+                      count: stats?.new || 0,
+                      color: 'bg-green-500',
+                    },
+                    {
+                      label: 'Contacted',
+                      count: stats?.contacted || 0,
+                      color: 'bg-blue-500',
+                    },
+                    {
+                      label: 'Qualified',
+                      count: stats?.qualified || 0,
+                      color: 'bg-yellow-500',
+                    },
+                    {
+                      label: 'Converted',
+                      count: stats?.converted || 0,
+                      color: 'bg-purple-500',
+                    },
+                    {
+                      label: 'Lost',
+                      count: stats?.lost || 0,
+                      color: 'bg-red-500',
+                    },
+                  ].map(stage => (
+                    <div
+                      key={stage.label}
+                      className="flex items-center justify-between"
+                    >
                       <div className="flex items-center gap-2">
-                        <div className={`w-2 h-2 rounded-full ${stage.color}`}></div>
-                        <span className="text-sm text-gray-400">{stage.label}</span>
+                        <div
+                          className={`w-2 h-2 rounded-full ${stage.color}`}
+                        ></div>
+                        <span className="text-sm text-gray-400">
+                          {stage.label}
+                        </span>
                       </div>
-                      <span className="text-sm font-bold text-white">{stage.count}</span>
+                      <span className="text-sm font-bold text-white">
+                        {stage.count}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -326,7 +485,9 @@ export default function AdminDashboardPage() {
 
               {/* Device Types */}
               <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-5">
-                <h3 className="font-semibold text-white mb-4">📱 Device Types</h3>
+                <h3 className="font-semibold text-white mb-4">
+                  📱 Device Types
+                </h3>
                 <div className="space-y-2 text-sm text-gray-400">
                   <div className="flex justify-between">
                     <span>Desktop</span>
@@ -351,19 +512,29 @@ export default function AdminDashboardPage() {
 
               {/* Quick Links */}
               <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-5">
-                <h3 className="font-semibold text-white mb-4">🔗 Quick Links</h3>
+                <h3 className="font-semibold text-white mb-4">
+                  🔗 Quick Links
+                </h3>
                 <div className="space-y-2">
                   {[
                     { label: 'View Website', href: '/' },
                     { label: 'Contact Page', href: '/contact' },
-                    { label: 'Mutual Funds', href: '/mutual-funds/why-mutual-funds' },
-                    { label: 'Insurance', href: '/insurance/why-life-insurance' },
+                    {
+                      label: 'Mutual Funds',
+                      href: '/mutual-funds/why-mutual-funds',
+                    },
+                    {
+                      label: 'Insurance',
+                      href: '/insurance/why-life-insurance',
+                    },
                     { label: 'Manage Leads', href: '/admin/leads' },
-                  ].map((link) => (
+                  ].map(link => (
                     <a
                       key={link.label}
                       href={link.href}
-                      target={link.href.startsWith('/admin') ? '_self' : '_blank'}
+                      target={
+                        link.href.startsWith('/admin') ? '_self' : '_blank'
+                      }
                       rel="noopener noreferrer"
                       className="block text-sm text-gray-400 hover:text-white transition-colors py-1"
                     >

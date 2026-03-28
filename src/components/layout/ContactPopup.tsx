@@ -7,8 +7,15 @@ import { X, Phone, MessageCircle } from 'lucide-react';
 function getDevice(): string {
   if (typeof window === 'undefined') return 'Desktop';
   const ua = navigator.userAgent;
-  const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
-  const browser = ua.includes('Chrome') ? 'Chrome' : ua.includes('Firefox') ? 'Firefox' : ua.includes('Safari') ? 'Safari' : 'Browser';
+  const isMobile =
+    /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+  const browser = ua.includes('Chrome')
+    ? 'Chrome'
+    : ua.includes('Firefox')
+      ? 'Firefox'
+      : ua.includes('Safari')
+        ? 'Safari'
+        : 'Browser';
   return `${isMobile ? 'Mobile' : 'Desktop'} - ${browser}`;
 }
 
@@ -134,12 +141,26 @@ export function ContactPopup() {
             {submitted ? (
               <div className="text-center py-6">
                 <div className="w-14 h-14 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="h-7 w-7 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <svg
+                    className="h-7 w-7 text-green-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-1">Thank You!</h3>
-                <p className="text-white/60 text-sm">We will get back to you shortly.</p>
+                <h3 className="text-xl font-bold text-white mb-1">
+                  Thank You!
+                </h3>
+                <p className="text-white/60 text-sm">
+                  We will get back to you shortly.
+                </p>
               </div>
             ) : (
               <>
@@ -147,41 +168,57 @@ export function ContactPopup() {
                 <div className="mb-5">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="w-1 h-5 bg-red-500 rounded-full" />
-                    <h3 className="text-xl font-bold text-white">Get a Free Consultation</h3>
+                    <h3 className="text-xl font-bold text-white">
+                      Get a Free Consultation
+                    </h3>
                   </div>
-                  <p className="text-white/50 text-sm pl-3">Fill in your details and we will call you back.</p>
+                  <p className="text-white/50 text-sm pl-3">
+                    Fill in your details and we will call you back.
+                  </p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-3">
                   <div>
-                    <label className="block text-xs font-medium text-white/60 mb-1.5">Full Name *</label>
+                    <label className="block text-xs font-medium text-white/60 mb-1.5">
+                      Full Name *
+                    </label>
                     <input
                       type="text"
                       placeholder="Enter your name"
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={e =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
                       required
                       className="w-full px-3 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-white/25 focus:outline-none focus:border-red-500/50 transition-all"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-white/60 mb-1.5">Phone Number *</label>
+                    <label className="block text-xs font-medium text-white/60 mb-1.5">
+                      Phone Number *
+                    </label>
                     <input
                       type="tel"
                       placeholder="+91 XXXXX XXXXX"
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      onChange={e =>
+                        setFormData({ ...formData, phone: e.target.value })
+                      }
                       required
                       className="w-full px-3 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-white/25 focus:outline-none focus:border-red-500/50 transition-all"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-white/60 mb-1.5">Email</label>
+                    <label className="block text-xs font-medium text-white/60 mb-1.5">
+                      Email
+                    </label>
                     <input
                       type="email"
                       placeholder="Enter your email"
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onChange={e =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
                       className="w-full px-3 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-white/25 focus:outline-none focus:border-red-500/50 transition-all"
                     />
                   </div>
@@ -192,7 +229,9 @@ export function ContactPopup() {
                       disabled={isSubmitting}
                       className="w-full py-3 rounded-full font-semibold text-white text-sm bg-red-500/20 border border-red-500/50 hover:bg-red-500/30 hover:border-red-500/70 disabled:opacity-50 transition-all duration-300 shadow-lg shadow-red-500/10 hover:-translate-y-0.5"
                     >
-                      {isSubmitting ? 'Submitting...' : 'Request Free Call Back'}
+                      {isSubmitting
+                        ? 'Submitting...'
+                        : 'Request Free Call Back'}
                     </button>
                   </div>
                 </form>

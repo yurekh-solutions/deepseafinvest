@@ -9,7 +9,7 @@ export function useMediaQuery(query: string): boolean {
 
   useEffect(() => {
     const media = window.matchMedia(query);
-    
+
     if (media.matches !== matches) {
       setMatches(media.matches);
     }
@@ -25,5 +25,6 @@ export function useMediaQuery(query: string): boolean {
 
 // Predefined breakpoints
 export const useIsMobile = () => useMediaQuery('(max-width: 768px)');
-export const useIsTablet = () => useMediaQuery('(min-width: 769px) and (max-width: 1024px)');
+export const useIsTablet = () =>
+  useMediaQuery('(min-width: 769px) and (max-width: 1024px)');
 export const useIsDesktop = () => useMediaQuery('(min-width: 1025px)');

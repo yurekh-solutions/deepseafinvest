@@ -14,9 +14,12 @@ export default function RecurringDepositsCalculatorPage() {
   // Simplified approximation for monthly deposits
   const months = years * 12;
   const monthlyRate = rate / 100 / 12;
-  
+
   // Future value of series formula
-  const maturityAmount = monthlyDeposit * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate);
+  const maturityAmount =
+    monthlyDeposit *
+    ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) *
+    (1 + monthlyRate);
   const totalDeposit = monthlyDeposit * months;
   const totalInterest = maturityAmount - totalDeposit;
 
@@ -37,16 +40,32 @@ export default function RecurringDepositsCalculatorPage() {
     >
       {/* SEO Content Block */}
       <div className="max-w-3xl mx-auto text-center mb-12">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Recurring Deposit (RD) Returns Calculator</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+          Recurring Deposit (RD) Returns Calculator
+        </h2>
         <p className="text-white/70 leading-relaxed mb-4">
-          A Recurring Deposit is the perfect savings instrument for those who want to save regularly with guaranteed returns. By depositing a fixed amount every month, you build a corpus steadily while earning interest similar to a fixed deposit. RDs are risk-free and ideal for short-to-medium term goals.
+          A Recurring Deposit is the perfect savings instrument for those who
+          want to save regularly with guaranteed returns. By depositing a fixed
+          amount every month, you build a corpus steadily while earning interest
+          similar to a fixed deposit. RDs are risk-free and ideal for
+          short-to-medium term goals.
         </p>
         <p className="text-white/60 leading-relaxed mb-6">
-          Our RD Calculator computes the total maturity amount based on your monthly deposit, interest rate, and tenure. It is an excellent way to plan for upcoming expenses like a vacation, gadget purchase, or annual insurance premium.
+          Our RD Calculator computes the total maturity amount based on your
+          monthly deposit, interest rate, and tenure. It is an excellent way to
+          plan for upcoming expenses like a vacation, gadget purchase, or annual
+          insurance premium.
         </p>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-left">
-          {[{label:'Interest rates', value:'5.5–7.5% p.a.'},{label:'Min monthly deposit', value:'₹100'},{label:'Tenure', value:'6 months –10 years'}].map(item => (
-            <div key={item.label} className="p-3 rounded-xl bg-white/5 border border-white/10">
+          {[
+            { label: 'Interest rates', value: '5.5–7.5% p.a.' },
+            { label: 'Min monthly deposit', value: '₹100' },
+            { label: 'Tenure', value: '6 months –10 years' },
+          ].map(item => (
+            <div
+              key={item.label}
+              className="p-3 rounded-xl bg-white/5 border border-white/10"
+            >
               <p className="text-white/50 text-xs mb-1">{item.label}</p>
               <p className="text-white font-semibold text-sm">{item.value}</p>
             </div>
@@ -67,14 +86,16 @@ export default function RecurringDepositsCalculatorPage() {
           <div className="space-y-6">
             {/* Monthly Deposit */}
             <div>
-              <label className="block text-white/70 mb-2">Monthly Deposit: {formatCurrency(monthlyDeposit)}</label>
+              <label className="block text-white/70 mb-2">
+                Monthly Deposit: {formatCurrency(monthlyDeposit)}
+              </label>
               <input
                 type="range"
                 min="500"
                 max="100000"
                 step="500"
                 value={monthlyDeposit}
-                onChange={(e) => setMonthlyDeposit(Number(e.target.value))}
+                onChange={e => setMonthlyDeposit(Number(e.target.value))}
                 className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-accent-red"
               />
               <div className="flex justify-between text-white/40 text-sm mt-1">
@@ -85,14 +106,16 @@ export default function RecurringDepositsCalculatorPage() {
 
             {/* Interest Rate */}
             <div>
-              <label className="block text-white/70 mb-2">Interest Rate: {rate}% p.a.</label>
+              <label className="block text-white/70 mb-2">
+                Interest Rate: {rate}% p.a.
+              </label>
               <input
                 type="range"
                 min="4"
                 max="9"
                 step="0.1"
                 value={rate}
-                onChange={(e) => setRate(Number(e.target.value))}
+                onChange={e => setRate(Number(e.target.value))}
                 className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-accent-red"
               />
               <div className="flex justify-between text-white/40 text-sm mt-1">
@@ -103,13 +126,15 @@ export default function RecurringDepositsCalculatorPage() {
 
             {/* Time Period */}
             <div>
-              <label className="block text-white/70 mb-2">Time Period: {years} years ({months} months)</label>
+              <label className="block text-white/70 mb-2">
+                Time Period: {years} years ({months} months)
+              </label>
               <input
                 type="range"
                 min="1"
                 max="10"
                 value={years}
-                onChange={(e) => setYears(Number(e.target.value))}
+                onChange={e => setYears(Number(e.target.value))}
                 className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-accent-red"
               />
               <div className="flex justify-between text-white/40 text-sm mt-1">
@@ -134,9 +159,13 @@ export default function RecurringDepositsCalculatorPage() {
               <div className="flex justify-between items-center py-3 border-b border-glass-border">
                 <div className="flex items-center gap-2">
                   <Calendar className="h-5 w-5 text-white/40" />
-                  <span className="text-white/70">Total Deposit ({months} months)</span>
+                  <span className="text-white/70">
+                    Total Deposit ({months} months)
+                  </span>
                 </div>
-                <span className="text-white font-semibold">{formatCurrency(totalDeposit)}</span>
+                <span className="text-white font-semibold">
+                  {formatCurrency(totalDeposit)}
+                </span>
               </div>
 
               <div className="flex justify-between items-center py-3 border-b border-glass-border">
@@ -144,7 +173,9 @@ export default function RecurringDepositsCalculatorPage() {
                   <TrendingUp className="h-5 w-5 text-accent-red" />
                   <span className="text-white/70">Total Interest Earned</span>
                 </div>
-                <span className="text-accent-red font-semibold">{formatCurrency(totalInterest)}</span>
+                <span className="text-accent-red font-semibold">
+                  {formatCurrency(totalInterest)}
+                </span>
               </div>
 
               <div className="flex justify-between items-center py-3">
@@ -158,23 +189,33 @@ export default function RecurringDepositsCalculatorPage() {
 
           {/* RD Benefits */}
           <GlassCard className="p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Benefits of RD</h3>
+            <h3 className="text-lg font-semibold text-white mb-4">
+              Benefits of RD
+            </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-accent-red rounded-full mt-2" />
-                <span className="text-white/70 text-sm">Disciplined savings habit with small monthly contributions</span>
+                <span className="text-white/70 text-sm">
+                  Disciplined savings habit with small monthly contributions
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-accent-red rounded-full mt-2" />
-                <span className="text-white/70 text-sm">Guaranteed returns unaffected by market fluctuations</span>
+                <span className="text-white/70 text-sm">
+                  Guaranteed returns unaffected by market fluctuations
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-accent-red rounded-full mt-2" />
-                <span className="text-white/70 text-sm">Loan facility available against RD balance</span>
+                <span className="text-white/70 text-sm">
+                  Loan facility available against RD balance
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-accent-red rounded-full mt-2" />
-                <span className="text-white/70 text-sm">Start with as low as ₹500 per month</span>
+                <span className="text-white/70 text-sm">
+                  Start with as low as ₹500 per month
+                </span>
               </li>
             </ul>
           </GlassCard>

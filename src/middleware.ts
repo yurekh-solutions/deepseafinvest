@@ -3,26 +3,27 @@ import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  
+
   // Check if accessing admin routes
   if (pathname.startsWith('/admin')) {
-    const token = request.cookies.get('admin_token')?.value || 
-                  request.headers.get('authorization')?.replace('Bearer ', '');
-    
+    const token =
+      request.cookies.get('admin_token')?.value ||
+      request.headers.get('authorization')?.replace('Bearer ', '');
+
     // Redirect to login if no token and not already on login page
     if (!token && !pathname.startsWith('/admin/login')) {
       return NextResponse.redirect(new URL('/admin/login', request.url));
     }
-    
+
     // Redirect to dashboard if trying to access login with valid token
     if (token && pathname.startsWith('/admin/login')) {
       return NextResponse.redirect(new URL('/admin/dashboard', request.url));
     }
   }
-  
+
   // Add security headers
   const response = NextResponse.next();
-  
+
   response.headers.set('X-Frame-Options', 'DENY');
   response.headers.set('X-Content-Type-Options', 'nosniff');
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
@@ -30,7 +31,7 @@ export function middleware(request: NextRequest) {
     'Permissions-Policy',
     'camera=(), microphone=(), geolocation=()'
   );
-  
+
   return response;
 }
 

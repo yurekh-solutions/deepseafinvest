@@ -25,22 +25,40 @@ export function Navbar() {
   // Prevent body scroll when menu is open
   React.useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [mobileOpen]);
 
   const mobileMenu = (
     <div
-      style={{ position: 'fixed', inset: 0, zIndex: 9999, backgroundColor: '#0a1628' }}
+      style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 9999,
+        backgroundColor: '#0a1628',
+      }}
       className="flex flex-col"
     >
       {/* Top bar - Logo left, Close right */}
       <div className="flex items-center justify-between px-4 py-4 border-b border-white/10">
-        <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2">
+        <Link
+          href="/"
+          onClick={() => setMobileOpen(false)}
+          className="flex items-center gap-2"
+        >
           <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-white p-1">
-            <Image src="/logo.png" alt="DEEPSEA FINVEST" fill className="object-contain" />
+            <Image
+              src="/logo.png"
+              alt="DEEPSEA FINVEST"
+              fill
+              className="object-contain"
+            />
           </div>
           <div className="flex flex-col">
-            <div className="text-white font-bold text-base leading-tight">DEEP<span className="text-red-500">SEA</span></div>
+            <div className="text-white font-bold text-base leading-tight">
+              DEEP<span className="text-red-500">SEA</span>
+            </div>
             <div className="text-red-500 font-semibold text-xs">FINVEST</div>
           </div>
         </Link>
@@ -55,7 +73,7 @@ export function Navbar() {
 
       {/* Nav Links + CTA */}
       <div className="px-4 py-4">
-        {services.map((service) => (
+        {services.map(service => (
           <Link
             key={service.label}
             href={service.href}
@@ -105,7 +123,7 @@ export function Navbar() {
 
         {/* Desktop Nav Links */}
         <div className="hidden md:flex items-center gap-6 lg:gap-8 px-6 lg:px-9 py-4">
-          {services.map((service) => (
+          {services.map(service => (
             <Link
               key={service.label}
               href={service.href}
@@ -124,7 +142,9 @@ export function Navbar() {
           <div className="size-10 rounded-full border-2 border-red-500/60 group-hover:border-red-500 flex items-center justify-center transition-colors bg-red-500/10">
             <Phone className="w-4 h-4 text-red-400" />
           </div>
-          <span className="text-slate-100 text-sm font-medium">Book a call</span>
+          <span className="text-slate-100 text-sm font-medium">
+            Book a call
+          </span>
         </a>
 
         {/* Hamburger Button */}

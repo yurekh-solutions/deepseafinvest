@@ -18,34 +18,57 @@ export default function PrivacyPolicyPage() {
             </div>
             <div>
               <h2 className="text-2xl font-bold text-white">Privacy Policy</h2>
-              <p className="text-white/60">Your data security is our priority</p>
+              <p className="text-white/60">
+                Your data security is our priority
+              </p>
             </div>
           </div>
 
           <div className="space-y-8 text-white/70">
             <section>
-              <h3 className="text-xl font-semibold text-white mb-3">Introduction</h3>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Introduction
+              </h3>
               <p className="leading-relaxed">
-                DEEPSEA FINVEST (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) is committed to protecting your privacy. 
-                This Privacy Policy explains how we collect, use, disclose, and safeguard your information 
-                when you visit our website or use our services.
+                DEEPSEA FINVEST (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or
+                &ldquo;us&rdquo;) is committed to protecting your privacy. This
+                Privacy Policy explains how we collect, use, disclose, and
+                safeguard your information when you visit our website or use our
+                services.
               </p>
             </section>
 
             <section>
-              <h3 className="text-xl font-semibold text-white mb-3">Information We Collect</h3>
-              <p className="leading-relaxed mb-3">We may collect the following types of information:</p>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Information We Collect
+              </h3>
+              <p className="leading-relaxed mb-3">
+                We may collect the following types of information:
+              </p>
               <ul className="list-disc list-inside space-y-2 ml-4">
-                <li>Personal identification information (Name, email address, phone number, PAN, etc.)</li>
-                <li>Financial information (Bank details, investment preferences, risk profile)</li>
+                <li>
+                  Personal identification information (Name, email address,
+                  phone number, PAN, etc.)
+                </li>
+                <li>
+                  Financial information (Bank details, investment preferences,
+                  risk profile)
+                </li>
                 <li>Demographic information (Age, occupation, income range)</li>
-                <li>Technical information (IP address, browser type, device information)</li>
+                <li>
+                  Technical information (IP address, browser type, device
+                  information)
+                </li>
               </ul>
             </section>
 
             <section>
-              <h3 className="text-xl font-semibold text-white mb-3">How We Use Your Information</h3>
-              <p className="leading-relaxed mb-3">We use the collected information for:</p>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                How We Use Your Information
+              </h3>
+              <p className="leading-relaxed mb-3">
+                We use the collected information for:
+              </p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>Processing your investment transactions</li>
                 <li>Providing customer support and responding to inquiries</li>
@@ -56,30 +79,39 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h3 className="text-xl font-semibold text-white mb-3">Information Sharing</h3>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Information Sharing
+              </h3>
               <p className="leading-relaxed">
-                We do not sell or rent your personal information to third parties. We may share your 
-                information with:
+                We do not sell or rent your personal information to third
+                parties. We may share your information with:
               </p>
               <ul className="list-disc list-inside space-y-2 ml-4 mt-3">
                 <li>Regulatory authorities as required by law</li>
                 <li>Service providers who assist in our operations</li>
-                <li>AMCs and financial institutions for transaction processing</li>
+                <li>
+                  AMCs and financial institutions for transaction processing
+                </li>
                 <li>Auditors and legal advisors</li>
               </ul>
             </section>
 
             <section>
-              <h3 className="text-xl font-semibold text-white mb-3">Data Security</h3>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Data Security
+              </h3>
               <p className="leading-relaxed">
-                We implement appropriate technical and organizational measures to protect your personal 
-                information against unauthorized access, alteration, disclosure, or destruction. 
-                However, no method of transmission over the internet is 100% secure.
+                We implement appropriate technical and organizational measures
+                to protect your personal information against unauthorized
+                access, alteration, disclosure, or destruction. However, no
+                method of transmission over the internet is 100% secure.
               </p>
             </section>
 
             <section>
-              <h3 className="text-xl font-semibold text-white mb-3">Your Rights</h3>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Your Rights
+              </h3>
               <p className="leading-relaxed mb-3">You have the right to:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>Access your personal information</li>
@@ -93,23 +125,30 @@ export default function PrivacyPolicyPage() {
             <section>
               <h3 className="text-xl font-semibold text-white mb-3">Cookies</h3>
               <p className="leading-relaxed">
-                We use cookies to enhance your browsing experience. You can set your browser to refuse 
-                cookies, but some features of our website may not function properly without them.
+                We use cookies to enhance your browsing experience. You can set
+                your browser to refuse cookies, but some features of our website
+                may not function properly without them.
               </p>
             </section>
 
             <section>
-              <h3 className="text-xl font-semibold text-white mb-3">Changes to This Policy</h3>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Changes to This Policy
+              </h3>
               <p className="leading-relaxed">
-                We may update this Privacy Policy from time to time. We will notify you of any changes 
-                by posting the new policy on this page and updating the effective date.
+                We may update this Privacy Policy from time to time. We will
+                notify you of any changes by posting the new policy on this page
+                and updating the effective date.
               </p>
             </section>
 
             <section>
-              <h3 className="text-xl font-semibold text-white mb-3">Contact Us</h3>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Contact Us
+              </h3>
               <p className="leading-relaxed">
-                If you have any questions about this Privacy Policy, please contact us at:
+                If you have any questions about this Privacy Policy, please
+                contact us at:
               </p>
               <div className="mt-3 p-4 bg-white/5 rounded-lg">
                 <p className="text-white">DEEPSEA FINVEST</p>
@@ -120,7 +159,12 @@ export default function PrivacyPolicyPage() {
 
             <div className="pt-6 border-t border-glass-border">
               <p className="text-white/50 text-sm">
-                Last updated: {new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
+                Last updated:{' '}
+                {new Date().toLocaleDateString('en-IN', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
               </p>
             </div>
           </div>

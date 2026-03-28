@@ -51,29 +51,36 @@ export default function OurFavouriteFundsPage() {
       {/* Introduction */}
       <div className="max-w-3xl mx-auto text-center mb-16">
         <p className="text-white/70 text-lg leading-relaxed">
-          Our team of experts has carefully analyzed hundreds of mutual funds to bring you our 
-          top picks. These funds have been selected based on consistent performance, fund manager 
-          expertise, expense ratios, and risk-adjusted returns.
+          Our team of experts has carefully analyzed hundreds of mutual funds to
+          bring you our top picks. These funds have been selected based on
+          consistent performance, fund manager expertise, expense ratios, and
+          risk-adjusted returns.
         </p>
       </div>
 
       {/* Funds Grid */}
       <div className="grid md:grid-cols-2 gap-6 mb-16">
-        {favouriteFunds.map((fund) => (
+        {favouriteFunds.map(fund => (
           <GlassCard key={fund.category} className="p-6" hover>
             <div className="flex items-start gap-4">
               <div className="w-14 h-14 bg-accent-red/20 rounded-xl flex items-center justify-center flex-shrink-0">
                 <fund.icon className="h-7 w-7 text-accent-red" />
               </div>
               <div className="flex-grow">
-                <p className="text-accent-red text-sm font-medium mb-1">{fund.category}</p>
-                <h3 className="text-xl font-semibold text-white mb-2">{fund.name}</h3>
+                <p className="text-accent-red text-sm font-medium mb-1">
+                  {fund.category}
+                </p>
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  {fund.name}
+                </h3>
                 <p className="text-white/60 mb-4">{fund.description}</p>
-                
+
                 <div className="flex gap-4 mb-4">
                   <div>
                     <span className="text-white/40 text-xs block">Returns</span>
-                    <span className="text-accent-red font-semibold">{fund.returns}</span>
+                    <span className="text-accent-red font-semibold">
+                      {fund.returns}
+                    </span>
                   </div>
                   <div>
                     <span className="text-white/40 text-xs block">Risk</span>
@@ -82,8 +89,11 @@ export default function OurFavouriteFundsPage() {
                 </div>
 
                 <div className="flex flex-wrap gap-2">
-                  {fund.features.map((feature) => (
-                    <span key={feature} className="text-xs bg-white/10 text-white/60 px-2 py-1 rounded">
+                  {fund.features.map(feature => (
+                    <span
+                      key={feature}
+                      className="text-xs bg-white/10 text-white/60 px-2 py-1 rounded"
+                    >
                       {feature}
                     </span>
                   ))}
@@ -96,35 +106,53 @@ export default function OurFavouriteFundsPage() {
 
       {/* Selection Criteria */}
       <GlassCard className="p-8" elevated>
-        <h2 className="text-2xl font-bold text-white mb-6 text-center">Our Selection Criteria</h2>
+        <h2 className="text-2xl font-bold text-white mb-6 text-center">
+          Our Selection Criteria
+        </h2>
         <div className="grid md:grid-cols-4 gap-6">
           <div className="text-center">
             <div className="w-16 h-16 bg-accent-red/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl font-bold text-accent-red">5+</span>
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Years Track Record</h3>
-            <p className="text-white/60 text-sm">Consistent performance over market cycles</p>
+            <h3 className="text-lg font-semibold text-white mb-2">
+              Years Track Record
+            </h3>
+            <p className="text-white/60 text-sm">
+              Consistent performance over market cycles
+            </p>
           </div>
           <div className="text-center">
             <div className="w-16 h-16 bg-accent-red/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl font-bold text-accent-red">4★</span>
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">High Ratings</h3>
-            <p className="text-white/60 text-sm">Top-rated by credible agencies</p>
+            <h3 className="text-lg font-semibold text-white mb-2">
+              High Ratings
+            </h3>
+            <p className="text-white/60 text-sm">
+              Top-rated by credible agencies
+            </p>
           </div>
           <div className="text-center">
             <div className="w-16 h-16 bg-accent-red/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl font-bold text-accent-red">&lt;1%</span>
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Low Expense</h3>
-            <p className="text-white/60 text-sm">Cost-efficient fund management</p>
+            <h3 className="text-lg font-semibold text-white mb-2">
+              Low Expense
+            </h3>
+            <p className="text-white/60 text-sm">
+              Cost-efficient fund management
+            </p>
           </div>
           <div className="text-center">
             <div className="w-16 h-16 bg-accent-red/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl font-bold text-accent-red">AUM</span>
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Size Matters</h3>
-            <p className="text-white/60 text-sm">Sufficient corpus for stability</p>
+            <h3 className="text-lg font-semibold text-white mb-2">
+              Size Matters
+            </h3>
+            <p className="text-white/60 text-sm">
+              Sufficient corpus for stability
+            </p>
           </div>
         </div>
       </GlassCard>

@@ -2,7 +2,13 @@
  * Type-safe API client for frontend
  */
 
-import type { ApiResponse, CreateLeadRequest, LoginRequest, LoginResponse, Lead } from '@/types';
+import type {
+  ApiResponse,
+  CreateLeadRequest,
+  LoginRequest,
+  LoginResponse,
+  Lead,
+} from '@/types';
 
 class ApiClient {
   private baseUrl: string;
@@ -49,7 +55,9 @@ class ApiClient {
   }
 
   // Leads
-  async createLead(lead: CreateLeadRequest): Promise<ApiResponse<{ lead: Lead }>> {
+  async createLead(
+    lead: CreateLeadRequest
+  ): Promise<ApiResponse<{ lead: Lead }>> {
     return this.request<{ lead: Lead }>('/api/leads', {
       method: 'POST',
       body: JSON.stringify(lead),

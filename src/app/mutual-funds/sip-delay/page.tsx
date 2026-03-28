@@ -14,11 +14,17 @@ export default function SIPDelayPage() {
   // Calculate corpus if started today
   const months = years * 12;
   const monthlyRate = expectedReturn / 100 / 12;
-  const corpusIfStartedToday = monthlySIP * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate);
+  const corpusIfStartedToday =
+    monthlySIP *
+    ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) *
+    (1 + monthlyRate);
 
   // Calculate corpus if delayed
   const delayedMonths = (years - delayYears) * 12;
-  const corpusIfDelayed = monthlySIP * ((Math.pow(1 + monthlyRate, delayedMonths) - 1) / monthlyRate) * (1 + monthlyRate);
+  const corpusIfDelayed =
+    monthlySIP *
+    ((Math.pow(1 + monthlyRate, delayedMonths) - 1) / monthlyRate) *
+    (1 + monthlyRate);
 
   // Cost of delay
   const costOfDelay = corpusIfStartedToday - corpusIfDelayed;
@@ -40,16 +46,31 @@ export default function SIPDelayPage() {
     >
       {/* SEO Content Block */}
       <div className="max-w-3xl mx-auto text-center mb-12">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">The True Cost of Delaying Your SIP</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+          The True Cost of Delaying Your SIP
+        </h2>
         <p className="text-white/70 leading-relaxed mb-4">
-          Every year you delay starting your SIP can cost you lakhs in lost returns. Compounding is time-sensitive — the earlier you begin, the more your money multiplies. A delay of just 5 years can reduce your final corpus by 40–60% depending on your investment horizon.
+          Every year you delay starting your SIP can cost you lakhs in lost
+          returns. Compounding is time-sensitive — the earlier you begin, the
+          more your money multiplies. A delay of just 5 years can reduce your
+          final corpus by 40–60% depending on your investment horizon.
         </p>
         <p className="text-white/60 leading-relaxed mb-6">
-          Our SIP Delay Calculator visually shows the difference between starting today versus waiting. See how much wealth you lose for every year of delay, and make an informed decision to start your investment journey now.
+          Our SIP Delay Calculator visually shows the difference between
+          starting today versus waiting. See how much wealth you lose for every
+          year of delay, and make an informed decision to start your investment
+          journey now.
         </p>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-left">
-          {[{label:'5 year delay costs', value:'40–60% corpus'},{label:'Start today with', value:'₹500/month'},{label:'Power of', value:'Compounding'}].map(item => (
-            <div key={item.label} className="p-3 rounded-xl bg-white/5 border border-white/10">
+          {[
+            { label: '5 year delay costs', value: '40–60% corpus' },
+            { label: 'Start today with', value: '₹500/month' },
+            { label: 'Power of', value: 'Compounding' },
+          ].map(item => (
+            <div
+              key={item.label}
+              className="p-3 rounded-xl bg-white/5 border border-white/10"
+            >
               <p className="text-white/50 text-xs mb-1">{item.label}</p>
               <p className="text-white font-semibold text-sm">{item.value}</p>
             </div>
@@ -69,51 +90,59 @@ export default function SIPDelayPage() {
 
           <div className="space-y-6">
             <div>
-              <label className="block text-white/70 mb-2">Monthly SIP Amount: {formatCurrency(monthlySIP)}</label>
+              <label className="block text-white/70 mb-2">
+                Monthly SIP Amount: {formatCurrency(monthlySIP)}
+              </label>
               <input
                 type="range"
                 min="1000"
                 max="100000"
                 step="1000"
                 value={monthlySIP}
-                onChange={(e) => setMonthlySIP(Number(e.target.value))}
+                onChange={e => setMonthlySIP(Number(e.target.value))}
                 className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-accent-red"
               />
             </div>
 
             <div>
-              <label className="block text-white/70 mb-2">Investment Period: {years} years</label>
+              <label className="block text-white/70 mb-2">
+                Investment Period: {years} years
+              </label>
               <input
                 type="range"
                 min="10"
                 max="30"
                 value={years}
-                onChange={(e) => setYears(Number(e.target.value))}
+                onChange={e => setYears(Number(e.target.value))}
                 className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-accent-red"
               />
             </div>
 
             <div>
-              <label className="block text-white/70 mb-2">Delay by: {delayYears} years</label>
+              <label className="block text-white/70 mb-2">
+                Delay by: {delayYears} years
+              </label>
               <input
                 type="range"
                 min="1"
                 max={years - 5}
                 value={delayYears}
-                onChange={(e) => setDelayYears(Number(e.target.value))}
+                onChange={e => setDelayYears(Number(e.target.value))}
                 className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-accent-red"
               />
             </div>
 
             <div>
-              <label className="block text-white/70 mb-2">Expected Return: {expectedReturn}% p.a.</label>
+              <label className="block text-white/70 mb-2">
+                Expected Return: {expectedReturn}% p.a.
+              </label>
               <input
                 type="range"
                 min="8"
                 max="15"
                 step="0.5"
                 value={expectedReturn}
-                onChange={(e) => setExpectedReturn(Number(e.target.value))}
+                onChange={e => setExpectedReturn(Number(e.target.value))}
                 className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-accent-red"
               />
             </div>
@@ -137,17 +166,25 @@ export default function SIPDelayPage() {
               <div className="p-4 bg-green-500/10 rounded-lg">
                 <div className="flex items-center gap-2 mb-1">
                   <TrendingUp className="h-4 w-4 text-green-400" />
-                  <span className="text-green-400 text-sm">If Started Today</span>
+                  <span className="text-green-400 text-sm">
+                    If Started Today
+                  </span>
                 </div>
-                <p className="text-2xl font-bold text-white">{formatCurrency(corpusIfStartedToday)}</p>
+                <p className="text-2xl font-bold text-white">
+                  {formatCurrency(corpusIfStartedToday)}
+                </p>
               </div>
 
               <div className="p-4 bg-red-500/10 rounded-lg">
                 <div className="flex items-center gap-2 mb-1">
                   <Clock className="h-4 w-4 text-red-400" />
-                  <span className="text-red-400 text-sm">If Delayed by {delayYears} Years</span>
+                  <span className="text-red-400 text-sm">
+                    If Delayed by {delayYears} Years
+                  </span>
                 </div>
-                <p className="text-2xl font-bold text-white">{formatCurrency(corpusIfDelayed)}</p>
+                <p className="text-2xl font-bold text-white">
+                  {formatCurrency(corpusIfDelayed)}
+                </p>
               </div>
             </div>
           </GlassCard>
@@ -155,9 +192,10 @@ export default function SIPDelayPage() {
           <GlassCard className="p-6">
             <h4 className="text-white font-semibold mb-3">Key Insight</h4>
             <p className="text-white/60 text-sm leading-relaxed">
-              By delaying just {delayYears} years, you could lose {formatCurrency(costOfDelay)}. 
-              The power of compounding works best when you start early. Even small delays can 
-              significantly impact your final corpus.
+              By delaying just {delayYears} years, you could lose{' '}
+              {formatCurrency(costOfDelay)}. The power of compounding works best
+              when you start early. Even small delays can significantly impact
+              your final corpus.
             </p>
           </GlassCard>
         </div>

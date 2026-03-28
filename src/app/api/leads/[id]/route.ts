@@ -15,21 +15,17 @@ export async function PUT(
 ) {
   try {
     const { Lead } = await getDB();
-    
+
     const body = await req.json();
-    
+
     // Update lead
-    const lead = await Lead.findByIdAndUpdate(
-      params.id,
-      body,
-      { new: true, runValidators: true }
-    );
+    const lead = await Lead.findByIdAndUpdate(params.id, body, {
+      new: true,
+      runValidators: true,
+    });
 
     if (!lead) {
-      return NextResponse.json(
-        { error: 'Lead not found' },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: 'Lead not found' }, { status: 404 });
     }
 
     return NextResponse.json(
@@ -47,14 +43,11 @@ export async function DELETE(
 ) {
   try {
     const { Lead } = await getDB();
-    
+
     const lead = await Lead.findByIdAndDelete(params.id);
 
     if (!lead) {
-      return NextResponse.json(
-        { error: 'Lead not found' },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: 'Lead not found' }, { status: 404 });
     }
 
     return NextResponse.json(

@@ -36,7 +36,7 @@ export default function AdminLoginPage() {
       // Set cookie so middleware allows dashboard access
       document.cookie = `admin_token=${data.token}; path=/; max-age=86400; SameSite=Strict`;
       setSuccess('Login successful! Redirecting to dashboard...');
-      
+
       // Wait 1.5 seconds to show success message, then redirect
       setTimeout(() => {
         window.location.href = '/admin/dashboard';
@@ -62,27 +62,36 @@ export default function AdminLoginPage() {
         <GlassCard className="w-full max-w-md relative z-10 p-8">
           <div className="text-center mb-10">
             <div className="flex justify-center mb-6">
-              <img src="/logo.png" alt="DeepSea Finvest" className="h-16 w-16 object-contain" />
+              <img
+                src="/logo.png"
+                alt="DeepSea Finvest"
+                className="h-16 w-16 object-contain"
+              />
             </div>
             <h1 className="text-4xl font-bold text-white mb-2">
               DEEP
-              <span className='text-red-500'>SEA FINVEST</span>
+              <span className="text-red-500">SEA FINVEST</span>
             </h1>
             <p className="text-gray-300 text-lg">Admin Portal</p>
           </div>
-          
+
           {/* Default Credentials Hint */}
           <div className="mb-6 p-4 bg-blue-500/10 border border-blue-500/30 rounded-xl backdrop-blur-md">
             <p className="text-xs text-blue-200 text-center">
               <span className="font-semibold">Demo Credentials:</span>
               <br />
-              Username: <code className="bg-white/10 px-2 py-0.5 rounded mx-1">admin</code>
+              Username:{' '}
+              <code className="bg-white/10 px-2 py-0.5 rounded mx-1">
+                admin
+              </code>
               <span className="mx-2">|</span>
-              Password: <code className="bg-white/10 px-2 py-0.5 rounded mx-1">admin123</code>
+              Password:{' '}
+              <code className="bg-white/10 px-2 py-0.5 rounded mx-1">
+                admin123
+              </code>
             </p>
           </div>
           {/* Default Credentials Hint */}
-          
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
@@ -92,7 +101,9 @@ export default function AdminLoginPage() {
               <input
                 type="text"
                 value={username}
-                onChange={(e: ChangeEvent<HTMLInputElement>) => setUsername(e.target.value)}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setUsername(e.target.value)
+                }
                 placeholder="Enter username (admin)"
                 required
                 disabled={loading}
@@ -108,7 +119,9 @@ export default function AdminLoginPage() {
               <input
                 type="password"
                 value={password}
-                onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setPassword(e.target.value)
+                }
                 placeholder="Enter password (admin123)"
                 required
                 disabled={loading}
@@ -125,8 +138,18 @@ export default function AdminLoginPage() {
 
             {success && (
               <div className="bg-green-500/20 border border-green-500/50 rounded-lg p-3 text-green-200 text-sm flex items-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
                 {success}
               </div>
@@ -143,7 +166,7 @@ export default function AdminLoginPage() {
             </div>
           </form>
         </GlassCard>
-    </div>
+      </div>
     </>
   );
 }

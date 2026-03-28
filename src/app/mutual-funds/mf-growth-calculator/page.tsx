@@ -38,16 +38,32 @@ export default function MFGrowthCalculatorPage() {
     >
       {/* SEO Content Block */}
       <div className="max-w-3xl mx-auto text-center mb-12">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Lump Sum Mutual Fund Growth Calculator</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+          Lump Sum Mutual Fund Growth Calculator
+        </h2>
         <p className="text-white/70 leading-relaxed mb-4">
-          A lump sum investment in mutual funds is ideal when you have a large amount available and want to deploy it immediately to benefit from market growth. Unlike SIP, lump sum investing puts your entire corpus to work from day one, maximising the compounding effect over the long term.
+          A lump sum investment in mutual funds is ideal when you have a large
+          amount available and want to deploy it immediately to benefit from
+          market growth. Unlike SIP, lump sum investing puts your entire corpus
+          to work from day one, maximising the compounding effect over the long
+          term.
         </p>
         <p className="text-white/60 leading-relaxed mb-6">
-          Use our MF Growth Calculator to visualise how a one-time investment grows over years at different return rates. This tool helps you compare growth across equity, debt and hybrid funds before making an informed investment decision.
+          Use our MF Growth Calculator to visualise how a one-time investment
+          grows over years at different return rates. This tool helps you
+          compare growth across equity, debt and hybrid funds before making an
+          informed investment decision.
         </p>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-left">
-          {[{label:'Best for', value:'Large one-time investment'},{label:'Expected returns', value:'10–18% p.a.'},{label:'Ideal tenure', value:'3–5+ years'}].map(item => (
-            <div key={item.label} className="p-3 rounded-xl bg-white/5 border border-white/10">
+          {[
+            { label: 'Best for', value: 'Large one-time investment' },
+            { label: 'Expected returns', value: '10–18% p.a.' },
+            { label: 'Ideal tenure', value: '3–5+ years' },
+          ].map(item => (
+            <div
+              key={item.label}
+              className="p-3 rounded-xl bg-white/5 border border-white/10"
+            >
               <p className="text-white/50 text-xs mb-1">{item.label}</p>
               <p className="text-white font-semibold text-sm">{item.value}</p>
             </div>
@@ -62,44 +78,52 @@ export default function MFGrowthCalculatorPage() {
             <div className="w-12 h-12 bg-accent-red/20 rounded-xl flex items-center justify-center">
               <Calculator className="h-6 w-6 text-accent-red" />
             </div>
-            <h2 className="text-2xl font-bold text-white">Lumpsum Calculator</h2>
+            <h2 className="text-2xl font-bold text-white">
+              Lumpsum Calculator
+            </h2>
           </div>
 
           <div className="space-y-6">
             <div>
-              <label className="block text-white/70 mb-2">Investment Amount: {formatCurrency(lumpsum)}</label>
+              <label className="block text-white/70 mb-2">
+                Investment Amount: {formatCurrency(lumpsum)}
+              </label>
               <input
                 type="range"
                 min="10000"
                 max="10000000"
                 step="10000"
                 value={lumpsum}
-                onChange={(e) => setLumpsum(Number(e.target.value))}
+                onChange={e => setLumpsum(Number(e.target.value))}
                 className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-accent-red"
               />
             </div>
 
             <div>
-              <label className="block text-white/70 mb-2">Investment Period: {years} years</label>
+              <label className="block text-white/70 mb-2">
+                Investment Period: {years} years
+              </label>
               <input
                 type="range"
                 min="1"
                 max="30"
                 value={years}
-                onChange={(e) => setYears(Number(e.target.value))}
+                onChange={e => setYears(Number(e.target.value))}
                 className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-accent-red"
               />
             </div>
 
             <div>
-              <label className="block text-white/70 mb-2">Expected Return: {expectedReturn}% p.a.</label>
+              <label className="block text-white/70 mb-2">
+                Expected Return: {expectedReturn}% p.a.
+              </label>
               <input
                 type="range"
                 min="6"
                 max="20"
                 step="0.5"
                 value={expectedReturn}
-                onChange={(e) => setExpectedReturn(Number(e.target.value))}
+                onChange={e => setExpectedReturn(Number(e.target.value))}
                 className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-accent-red"
               />
             </div>
@@ -119,15 +143,21 @@ export default function MFGrowthCalculatorPage() {
             <div className="space-y-3">
               <div className="flex justify-between items-center py-2 border-b border-glass-border">
                 <span className="text-white/70">Initial Investment</span>
-                <span className="text-white font-semibold">{formatCurrency(lumpsum)}</span>
+                <span className="text-white font-semibold">
+                  {formatCurrency(lumpsum)}
+                </span>
               </div>
               <div className="flex justify-between items-center py-2 border-b border-glass-border">
                 <span className="text-white/70">Total Returns</span>
-                <span className="text-accent-red font-semibold">{formatCurrency(totalReturns)}</span>
+                <span className="text-accent-red font-semibold">
+                  {formatCurrency(totalReturns)}
+                </span>
               </div>
               <div className="flex justify-between items-center py-2">
                 <span className="text-white/70">Absolute Returns</span>
-                <span className="text-white font-semibold">{((totalReturns / lumpsum) * 100).toFixed(1)}%</span>
+                <span className="text-white font-semibold">
+                  {((totalReturns / lumpsum) * 100).toFixed(1)}%
+                </span>
               </div>
             </div>
           </GlassCard>
@@ -138,10 +168,12 @@ export default function MFGrowthCalculatorPage() {
               Year-wise Growth
             </h4>
             <div className="space-y-2 max-h-48 overflow-y-auto">
-              {yearWiseData.map((data) => (
+              {yearWiseData.map(data => (
                 <div key={data.year} className="flex justify-between text-sm">
                   <span className="text-white/50">Year {data.year}</span>
-                  <span className="text-white/80">{formatCurrency(data.value)}</span>
+                  <span className="text-white/80">
+                    {formatCurrency(data.value)}
+                  </span>
                 </div>
               ))}
             </div>

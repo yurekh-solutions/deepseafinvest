@@ -13,9 +13,12 @@ export default function SIPCalculatorPage() {
   // SIP calculation
   const months = years * 12;
   const monthlyRate = expectedReturn / 100 / 12;
-  
+
   // Future value of SIP formula
-  const futureValue = monthlyInvestment * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate);
+  const futureValue =
+    monthlyInvestment *
+    ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) *
+    (1 + monthlyRate);
   const totalInvestment = monthlyInvestment * months;
   const wealthGained = futureValue - totalInvestment;
 
@@ -36,16 +39,34 @@ export default function SIPCalculatorPage() {
     >
       {/* SEO Content Block */}
       <div className="max-w-3xl mx-auto text-center mb-12">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">SIP Calculator — Plan Your Wealth Creation</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+          SIP Calculator — Plan Your Wealth Creation
+        </h2>
         <p className="text-white/70 leading-relaxed mb-4">
-          A Systematic Investment Plan (SIP) is the most disciplined and effective way to build long-term wealth. By investing a fixed amount every month in mutual funds, you harness the power of compounding — your returns earn returns, growing your corpus exponentially over time.
+          A Systematic Investment Plan (SIP) is the most disciplined and
+          effective way to build long-term wealth. By investing a fixed amount
+          every month in mutual funds, you harness the power of compounding —
+          your returns earn returns, growing your corpus exponentially over
+          time.
         </p>
         <p className="text-white/60 leading-relaxed mb-6">
-          Our SIP Calculator helps you instantly estimate how much your monthly investments will grow over your chosen period at an expected rate of return. Whether you are saving for a home, your child&apos;s education, or retirement, SIP investing helps you reach your goals systematically without market timing stress.
+          Our SIP Calculator helps you instantly estimate how much your monthly
+          investments will grow over your chosen period at an expected rate of
+          return. Whether you are saving for a home, your child&apos;s
+          education, or retirement, SIP investing helps you reach your goals
+          systematically without market timing stress.
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
-          {[{label:'Start with just', value:'₹500/month'},{label:'Tax benefit under', value:'Sec 80C'},{label:'Expected returns', value:'12–15% p.a.'},{label:'Minimum tenure', value:'1 Year'}].map(item => (
-            <div key={item.label} className="p-3 rounded-xl bg-white/5 border border-white/10">
+          {[
+            { label: 'Start with just', value: '₹500/month' },
+            { label: 'Tax benefit under', value: 'Sec 80C' },
+            { label: 'Expected returns', value: '12–15% p.a.' },
+            { label: 'Minimum tenure', value: '1 Year' },
+          ].map(item => (
+            <div
+              key={item.label}
+              className="p-3 rounded-xl bg-white/5 border border-white/10"
+            >
               <p className="text-white/50 text-xs mb-1">{item.label}</p>
               <p className="text-white font-semibold text-sm">{item.value}</p>
             </div>
@@ -66,14 +87,16 @@ export default function SIPCalculatorPage() {
           <div className="space-y-6">
             {/* Monthly Investment */}
             <div>
-              <label className="block text-white/70 mb-2">Monthly Investment: {formatCurrency(monthlyInvestment)}</label>
+              <label className="block text-white/70 mb-2">
+                Monthly Investment: {formatCurrency(monthlyInvestment)}
+              </label>
               <input
                 type="range"
                 min="500"
                 max="100000"
                 step="500"
                 value={monthlyInvestment}
-                onChange={(e) => setMonthlyInvestment(Number(e.target.value))}
+                onChange={e => setMonthlyInvestment(Number(e.target.value))}
                 className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-accent-red"
               />
               <div className="flex justify-between text-white/40 text-sm mt-1">
@@ -84,14 +107,16 @@ export default function SIPCalculatorPage() {
 
             {/* Expected Return */}
             <div>
-              <label className="block text-white/70 mb-2">Expected Return Rate: {expectedReturn}% p.a.</label>
+              <label className="block text-white/70 mb-2">
+                Expected Return Rate: {expectedReturn}% p.a.
+              </label>
               <input
                 type="range"
                 min="6"
                 max="20"
                 step="0.5"
                 value={expectedReturn}
-                onChange={(e) => setExpectedReturn(Number(e.target.value))}
+                onChange={e => setExpectedReturn(Number(e.target.value))}
                 className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-accent-red"
               />
               <div className="flex justify-between text-white/40 text-sm mt-1">
@@ -102,13 +127,15 @@ export default function SIPCalculatorPage() {
 
             {/* Time Period */}
             <div>
-              <label className="block text-white/70 mb-2">Time Period: {years} years</label>
+              <label className="block text-white/70 mb-2">
+                Time Period: {years} years
+              </label>
               <input
                 type="range"
                 min="1"
                 max="30"
                 value={years}
-                onChange={(e) => setYears(Number(e.target.value))}
+                onChange={e => setYears(Number(e.target.value))}
                 className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-accent-red"
               />
               <div className="flex justify-between text-white/40 text-sm mt-1">
@@ -135,7 +162,9 @@ export default function SIPCalculatorPage() {
                   <Calendar className="h-5 w-5 text-white/40" />
                   <span className="text-white/70">Total Investment</span>
                 </div>
-                <span className="text-white font-semibold">{formatCurrency(totalInvestment)}</span>
+                <span className="text-white font-semibold">
+                  {formatCurrency(totalInvestment)}
+                </span>
               </div>
 
               <div className="flex justify-between items-center py-3 border-b border-glass-border">
@@ -143,7 +172,9 @@ export default function SIPCalculatorPage() {
                   <TrendingUp className="h-5 w-5 text-accent-red" />
                   <span className="text-white/70">Wealth Gained</span>
                 </div>
-                <span className="text-accent-red font-semibold">{formatCurrency(wealthGained)}</span>
+                <span className="text-accent-red font-semibold">
+                  {formatCurrency(wealthGained)}
+                </span>
               </div>
 
               <div className="flex justify-between items-center py-3">
@@ -160,7 +191,9 @@ export default function SIPCalculatorPage() {
             <div className="flex items-start gap-3">
               <Target className="h-5 w-5 text-accent-red flex-shrink-0 mt-0.5" />
               <div>
-                <h4 className="text-white font-semibold mb-2">SIP Investment Tips</h4>
+                <h4 className="text-white font-semibold mb-2">
+                  SIP Investment Tips
+                </h4>
                 <ul className="space-y-2 text-white/60 text-sm">
                   <li>• Start early to benefit from compounding</li>
                   <li>• Increase SIP amount annually (Step-up SIP)</li>

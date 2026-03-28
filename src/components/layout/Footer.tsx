@@ -42,7 +42,8 @@ const socialLinks = [
 ];
 
 export function Footer() {
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919136242706';
+  const whatsappNumber =
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919136242706';
   const whatsappLink = `https://wa.me/${whatsappNumber}`;
 
   return (
@@ -55,14 +56,22 @@ export function Footer() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* CTA Section */}
-        <GlassCard className="p-6 md:p-8 lg:p-12 mb-12 md:mb-16 text-center overflow-hidden relative" elevated>
+        <GlassCard
+          className="p-6 md:p-8 lg:p-12 mb-12 md:mb-16 text-center overflow-hidden relative"
+          elevated
+        >
           <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 via-transparent to-red-500/10" />
           <div className="relative">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4">
-              Ready to Start Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">Financial Journey?</span>
+              Ready to Start Your{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">
+                Financial Journey?
+              </span>
             </h2>
             <p className="text-white/70 text-sm md:text-base lg:text-lg mb-6 md:mb-8 max-w-2xl mx-auto">
-              Get in touch with us today and discover how we can help you achieve your financial goals with qualified and unbiased wealth management.
+              Get in touch with us today and discover how we can help you
+              achieve your financial goals with qualified and unbiased wealth
+              management.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
               <a
@@ -91,29 +100,36 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center space-x-3 mb-6 group">
               <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-white p-1 shadow-lg shadow-black/20">
-                <Image 
-                  src="/logo.png" 
-                  alt="DEEPSEA FINVEST - Wealth Management Mumbai" 
+                <Image
+                  src="/logo.png"
+                  alt="DEEPSEA FINVEST - Wealth Management Mumbai"
                   fill
                   className="object-contain"
                 />
               </div>
               <div>
                 <div className="flex items-baseline">
-                  <span className="text-white font-bold text-2xl tracking-tight">DEEP</span>
-                  <span className="text-accent-red font-bold text-2xl tracking-tight">SEA</span>
+                  <span className="text-white font-bold text-2xl tracking-tight">
+                    DEEP
+                  </span>
+                  <span className="text-accent-red font-bold text-2xl tracking-tight">
+                    SEA
+                  </span>
                 </div>
-                <div className="text-accent-red font-bold text-lg tracking-tight -mt-1">FINVEST</div>
+                <div className="text-accent-red font-bold text-lg tracking-tight -mt-1">
+                  FINVEST
+                </div>
               </div>
             </Link>
             <p className="text-white/60 mb-6 max-w-sm leading-relaxed">
-              Qualified & Unbiased Wealth Management across Various Financial Asset Classes. 
-              Mumbai-Based Trusted Wealth Management Firm since 2011.
+              Qualified & Unbiased Wealth Management across Various Financial
+              Asset Classes. Mumbai-Based Trusted Wealth Management Firm since
+              2011.
             </p>
-            
+
             {/* Social Links */}
             <div className="flex space-x-3">
-              {socialLinks.map((social) => (
+              {socialLinks.map(social => (
                 <a
                   key={social.label}
                   href={social.href}
@@ -133,7 +149,7 @@ export function Footer() {
               Services
             </h3>
             <ul className="space-y-3">
-              {footerLinks.services.map((link) => (
+              {footerLinks.services.map(link => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
@@ -153,7 +169,7 @@ export function Footer() {
               Quick Links
             </h3>
             <ul className="space-y-3">
-              {footerLinks.quickLinks.map((link) => (
+              {footerLinks.quickLinks.map(link => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
@@ -173,7 +189,7 @@ export function Footer() {
               Calculators
             </h3>
             <ul className="space-y-3">
-              {footerLinks.calculators.map((link) => (
+              {footerLinks.calculators.map(link => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
@@ -214,7 +230,11 @@ export function Footer() {
               <li>
                 <div className="flex items-start text-white/60">
                   <MapPin className="h-5 w-5 mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm">Mumbai, Maharashtra<br />India</span>
+                  <span className="text-sm">
+                    Mumbai, Maharashtra
+                    <br />
+                    India
+                  </span>
                 </div>
               </li>
             </ul>
@@ -225,10 +245,11 @@ export function Footer() {
         <div className="border-t border-glass-border pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-white/50 text-sm text-center md:text-left">
-              © {new Date().getFullYear()} DEEPSEA FINVEST. All rights reserved. | Founded in 2011
+              © {new Date().getFullYear()} DEEPSEA FINVEST. All rights reserved.
+              | Founded in 2011
             </p>
             <div className="flex flex-wrap justify-center gap-6">
-              {footerLinks.legal.map((link) => (
+              {footerLinks.legal.map(link => (
                 <Link
                   key={link.label}
                   href={link.href}
@@ -239,12 +260,14 @@ export function Footer() {
               ))}
             </div>
           </div>
-          
+
           {/* Disclaimer */}
           <div className="mt-6 p-4 bg-glass-white rounded-lg">
             <p className="text-white/40 text-xs text-center leading-relaxed">
-              <strong className="text-white/60">Disclaimer:</strong> Mutual fund investments are subject to market risks. 
-              Please read all scheme related documents carefully before investing. Past performance is not indicative of future returns.
+              <strong className="text-white/60">Disclaimer:</strong> Mutual fund
+              investments are subject to market risks. Please read all scheme
+              related documents carefully before investing. Past performance is
+              not indicative of future returns.
             </p>
           </div>
 

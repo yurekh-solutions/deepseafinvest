@@ -26,9 +26,7 @@ export const GlassInput = forwardRef<HTMLInputElement, GlassInputProps>(
           )}
           {...props}
         />
-        {error && (
-          <p className="mt-1 text-sm text-accent-red-light">{error}</p>
-        )}
+        {error && <p className="mt-1 text-sm text-accent-red-light">{error}</p>}
       </div>
     );
   }

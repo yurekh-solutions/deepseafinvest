@@ -30,13 +30,14 @@ export function About() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-
           {/* ── LEFT: Content ── */}
           <div className="flex flex-col justify-center">
             {/* Label */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/15 backdrop-blur-sm border border-red-500/30 rounded-full mb-6 w-fit">
               <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
-              <span className="text-red-400 text-sm font-semibold tracking-wide">About Us</span>
+              <span className="text-red-400 text-sm font-semibold tracking-wide">
+                About Us
+              </span>
             </div>
 
             {/* Heading */}
@@ -50,21 +51,28 @@ export function About() {
             {/* Description */}
             <div className="space-y-4 mb-10">
               <p className="text-white/70 text-base md:text-lg leading-relaxed">
-                DEEPSEA FINVEST is a Mumbai-based Trusted Wealth Management Firm, part of the esteemed
-                DEEPSEA Group founded in 2011. We deliver Qualified & Unbiased Wealth Management across
-                High Yield Bonds, Mutual Funds, Insurance, Equity & Alternative Investments.
+                DEEPSEA FINVEST is a Mumbai-based Trusted Wealth Management
+                Firm, part of the esteemed DEEPSEA Group founded in 2011. We
+                deliver Qualified & Unbiased Wealth Management across High Yield
+                Bonds, Mutual Funds, Insurance, Equity & Alternative
+                Investments.
               </p>
               <p className="text-white/60 text-base leading-relaxed">
-                We understand the unique financial challenges of Marine Engineers, NRIs, Doctors & Business
-                Owners. With offices in Mumbai & Singapore, we serve a diverse global clientele with
-                expert, personalised guidance across all financial asset classes.
+                We understand the unique financial challenges of Marine
+                Engineers, NRIs, Doctors & Business Owners. With offices in
+                Mumbai & Singapore, we serve a diverse global clientele with
+                expert, personalised guidance across all financial asset
+                classes.
               </p>
             </div>
 
             {/* Checklist */}
             <div className="grid grid-cols-2 gap-2 mb-10">
-              {highlights.map((item) => (
-                <div key={item} className="flex items-center gap-2 text-white/75">
+              {highlights.map(item => (
+                <div
+                  key={item}
+                  className="flex items-center gap-2 text-white/75"
+                >
                   <CheckCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
                   <span className="text-sm">{item}</span>
                 </div>
@@ -74,9 +82,16 @@ export function About() {
             {/* Stats – big numbers */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-white/10 rounded-2xl overflow-hidden border border-white/10 mb-10">
               {stats.map((stat, i) => (
-                <div key={stat.label} className={`bg-[#0a1628]/80 backdrop-blur-sm p-5 ${i === 0 ? 'rounded-tl-2xl rounded-bl-2xl' : ''} ${i === stats.length - 1 ? 'rounded-tr-2xl rounded-br-2xl' : ''}`}>
-                  <dd className="text-3xl md:text-4xl font-bold text-white mb-1">{stat.value}</dd>
-                  <dt className="text-white/50 text-xs md:text-sm">{stat.label}</dt>
+                <div
+                  key={stat.label}
+                  className={`bg-[#0a1628]/80 backdrop-blur-sm p-5 ${i === 0 ? 'rounded-tl-2xl rounded-bl-2xl' : ''} ${i === stats.length - 1 ? 'rounded-tr-2xl rounded-br-2xl' : ''}`}
+                >
+                  <dd className="text-3xl md:text-4xl font-bold text-white mb-1">
+                    {stat.value}
+                  </dd>
+                  <dt className="text-white/50 text-xs md:text-sm">
+                    {stat.label}
+                  </dt>
                 </div>
               ))}
             </div>
@@ -106,8 +121,12 @@ export function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/60 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
                 <div className="glass-card px-4 py-2 rounded-xl">
-                  <p className="text-white font-semibold text-sm">High Yield Bonds</p>
-                  <p className="text-red-400 text-xs font-medium">8–15% Market Yield</p>
+                  <p className="text-white font-semibold text-sm">
+                    High Yield Bonds
+                  </p>
+                  <p className="text-red-400 text-xs font-medium">
+                    8–15% Market Yield
+                  </p>
                 </div>
               </div>
             </div>
@@ -134,13 +153,14 @@ export function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/50 via-transparent to-transparent" />
               <div className="absolute bottom-3 left-3 right-3">
                 <div className="glass-card px-3 py-2 rounded-xl">
-                  <p className="text-white font-semibold text-xs">SEBI Registered</p>
+                  <p className="text-white font-semibold text-xs">
+                    SEBI Registered
+                  </p>
                   <p className="text-white/50 text-xs">Qualified Advisors</p>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
