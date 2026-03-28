@@ -41,7 +41,7 @@ export default function SIPCalculatorPage() {
           A Systematic Investment Plan (SIP) is the most disciplined and effective way to build long-term wealth. By investing a fixed amount every month in mutual funds, you harness the power of compounding — your returns earn returns, growing your corpus exponentially over time.
         </p>
         <p className="text-white/60 leading-relaxed mb-6">
-          Our SIP Calculator helps you instantly estimate how much your monthly investments will grow over your chosen period at an expected rate of return. Whether you are saving for a home, your child's education, or retirement, SIP investing helps you reach your goals systematically without market timing stress.
+          Our SIP Calculator helps you instantly estimate how much your monthly investments will grow over your chosen period at an expected rate of return. Whether you are saving for a home, your child&apos;s education, or retirement, SIP investing helps you reach your goals systematically without market timing stress.
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
           {[{label:'Start with just', value:'₹500/month'},{label:'Tax benefit under', value:'Sec 80C'},{label:'Expected returns', value:'12–15% p.a.'},{label:'Minimum tenure', value:'1 Year'}].map(item => (

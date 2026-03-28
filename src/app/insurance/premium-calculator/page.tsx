@@ -29,7 +29,7 @@ export default function PremiumCalculatorPage() {
           Life insurance premium depends on several factors including your age, sum assured, health condition, policy type, and tenure. Younger policyholders benefit from significantly lower premiums, making it essential to buy life insurance early in your career to lock in affordable rates.
         </p>
         <p className="text-white/60 leading-relaxed mb-6">
-          Our Premium Calculator gives you an instant estimate of your annual life insurance premium based on your profile. Use this as a starting point to compare plans and choose the right coverage for your family's financial security.
+          Our Premium Calculator gives you an instant estimate of your annual life insurance premium based on your profile. Use this as a starting point to compare plans and choose the right coverage for your family&apos;s financial security.
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
           {[{label:'Premium for age 25', value:'~₹10,000/year'},{label:'Sum assured up to', value:'₹1 Crore+'},{label:'Tax benefit', value:'Sec 80C & 10(10D)'},{label:'Policy types', value:'Term, ULIP, Endowment'}].map(item => (

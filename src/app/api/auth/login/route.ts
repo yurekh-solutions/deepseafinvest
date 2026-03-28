@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { env } from '@/lib/env';
 import { handleApiError, validateRequired } from '@/lib/api-error';
@@ -38,9 +37,9 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Verify password
+    // Verify password (plain text comparison)
     console.log('Verifying password...');
-    const isPasswordValid = await bcrypt.compare(password, admin.password);
+    const isPasswordValid = password === admin.password;
     console.log('Password valid:', isPasswordValid);
     
     if (!isPasswordValid) {

@@ -50,7 +50,7 @@ export default function ChildEducationPlannerPage() {
       <div className="max-w-3xl mx-auto text-center mb-12">
         <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Child Education Cost Planner</h2>
         <p className="text-white/70 leading-relaxed mb-4">
-          Education costs in India are rising at 10–12% per year. Planning early for your child's education is one of the most important financial decisions you can make. Whether it is engineering, medicine, MBA, or studying abroad, having a dedicated education fund ensures your child's dreams are never limited by finances.
+          Education costs in India are rising at 10–12% per year. Planning early for your child&apos;s education is one of the most important financial decisions you can make. Whether it is engineering, medicine, MBA, or studying abroad, having a dedicated education fund ensures your child&apos;s dreams are never limited by finances.
         </p>
         <p className="text-white/60 leading-relaxed mb-6">
           Our Child Education Planner estimates the future cost of education accounting for inflation, and calculates the monthly SIP required to accumulate that corpus by the time your child is ready for college.

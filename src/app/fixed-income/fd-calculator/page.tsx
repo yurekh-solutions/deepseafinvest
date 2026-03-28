@@ -34,7 +34,7 @@ export default function FDCalculatorPage() {
       <div className="max-w-3xl mx-auto text-center mb-12">
         <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Fixed Deposit (FD) Returns Calculator</h2>
         <p className="text-white/70 leading-relaxed mb-4">
-          Fixed Deposits are one of India's most popular and trusted investment instruments. They offer guaranteed returns, capital safety, and flexible tenures — making them ideal for conservative investors seeking predictable income. FDs are backed by the bank or NBFC and offer returns ranging from 5.5% to 9.5% depending on the issuer and tenure.
+          Fixed Deposits are one of India&apos;s most popular and trusted investment instruments. They offer guaranteed returns, capital safety, and flexible tenures — making them ideal for conservative investors seeking predictable income. FDs are backed by the bank or NBFC and offer returns ranging from 5.5% to 9.5% depending on the issuer and tenure.
         </p>
         <p className="text-white/60 leading-relaxed mb-6">
           Use our FD Calculator to compare maturity amounts across different interest rates and tenures. Whether you are looking for a short-term parking option or a multi-year investment, this calculator helps you make an informed decision.
