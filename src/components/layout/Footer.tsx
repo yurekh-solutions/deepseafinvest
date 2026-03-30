@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { GlassCard } from '@/components/glassmorphism/GlassCard';
 import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { SITE_CONFIG } from '@/lib/constants';
 
 const footerLinks = {
   services: [
@@ -42,8 +43,7 @@ const socialLinks = [
 ];
 
 export function Footer() {
-  const whatsappNumber =
-    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919136242706';
+  const whatsappNumber = SITE_CONFIG.phoneRaw;
   const whatsappLink = `https://wa.me/${whatsappNumber}`;
 
   return (
@@ -84,11 +84,11 @@ export function Footer() {
                 <ArrowRight className="h-4 w-4 md:h-5 md:w-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
-                href="tel:+919136242706"
+                href={`tel:+${SITE_CONFIG.phoneRaw}`}
                 className="w-full sm:w-auto bg-white/10 backdrop-blur-sm border border-white/20 hover:border-white/40 hover:bg-white/15 px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold inline-flex items-center justify-center gap-2 transition-all"
               >
                 <Phone className="h-4 w-4 md:h-5 md:w-5" />
-                Call Us Now
+                {SITE_CONFIG.phone}
               </a>
             </div>
           </div>
@@ -211,29 +211,29 @@ export function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="mailto:info@deepseafinvest.com"
+                  href={`mailto:${SITE_CONFIG.email}`}
                   className="flex items-start text-white/60 hover:text-white transition-colors group"
                 >
                   <Mail className="h-5 w-5 mr-3 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                  <span className="text-sm">info@deepseafinvest.com</span>
+                  <span className="text-sm">{SITE_CONFIG.email}</span>
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+919136242706"
+                  href={`tel:+${SITE_CONFIG.phoneRaw}`}
                   className="flex items-start text-white/60 hover:text-white transition-colors group"
                 >
                   <Phone className="h-5 w-5 mr-3 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                  <span className="text-sm">+91 91362 42706</span>
+                  <span className="text-sm">{SITE_CONFIG.phone}</span>
                 </a>
               </li>
               <li>
                 <div className="flex items-start text-white/60">
                   <MapPin className="h-5 w-5 mr-3 mt-0.5 flex-shrink-0" />
                   <span className="text-sm">
-                    Mumbai, Maharashtra
+                    {SITE_CONFIG.address.company}
                     <br />
-                    India
+                    {SITE_CONFIG.address.line4}
                   </span>
                 </div>
               </li>

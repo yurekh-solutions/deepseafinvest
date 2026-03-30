@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { GlassCard } from '@/components/glassmorphism/GlassCard';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -63,10 +64,10 @@ export default function ContactPage() {
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">Phone</h3>
             <a
-              href="tel:+919136242706"
+              href={`tel:+${SITE_CONFIG.phoneRaw}`}
               className="text-white/70 hover:text-white"
             >
-              +91 91362 42706
+              {SITE_CONFIG.phone}
             </a>
           </GlassCard>
 
@@ -76,10 +77,10 @@ export default function ContactPage() {
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">Email</h3>
             <a
-              href="mailto:info@deepseafinvest.com"
+              href={`mailto:${SITE_CONFIG.email}`}
               className="text-white/70 hover:text-white"
             >
-              info@deepseafinvest.com
+              {SITE_CONFIG.email}
             </a>
           </GlassCard>
 
@@ -87,8 +88,16 @@ export default function ContactPage() {
             <div className="w-12 h-12 bg-red-500/15 border border-red-500/30 rounded-xl flex items-center justify-center mb-4">
               <MapPin className="h-6 w-6 text-red-400" />
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Location</h3>
-            <p className="text-white/70">Mumbai, India</p>
+            <h3 className="text-lg font-semibold text-white mb-2">Address</h3>
+            <div className="text-white/70 space-y-1">
+              <p className="font-semibold text-white">
+                {SITE_CONFIG.address.company}
+              </p>
+              <p>{SITE_CONFIG.address.line1}</p>
+              <p>{SITE_CONFIG.address.line2}</p>
+              <p>{SITE_CONFIG.address.line3}</p>
+              <p>{SITE_CONFIG.address.line4}</p>
+            </div>
           </GlassCard>
         </div>
 
@@ -209,6 +218,25 @@ export default function ContactPage() {
             )}
           </GlassCard>
         </div>
+      </div>
+
+      {/* Map Section */}
+      <div className="mt-12">
+        <GlassCard className="p-6" elevated>
+          <h3 className="text-xl font-semibold text-white mb-4">Find Us</h3>
+          <div className="w-full h-[400px] rounded-xl overflow-hidden">
+            <iframe
+              src={SITE_CONFIG.address.mapUrl}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Deepsea Finvest Office Location"
+            />
+          </div>
+        </GlassCard>
       </div>
     </PageLayout>
   );
