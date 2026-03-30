@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  distDir: 'dist',
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -23,6 +25,7 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  trailingSlash: true,
 };
 
 export default nextConfig;
